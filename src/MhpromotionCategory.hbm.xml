@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-3-1 15:41:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.persist.dao.MhpromotionCategory" table="mhpromotion_category" catalog="imap">
+        <id name="id" type="string">
+            <column name="id" length="40" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="40" not-null="true" />
+        </property>
+        <property name="online" type="java.lang.Integer">
+            <column name="online">
+                <comment>0 &#228;&#184;&#139;&#231;&#186;&#191; 1 &#228;&#184;&#138;&#231;&#186;&#191;</comment>
+            </column>
+        </property>
+        <property name="porder" type="java.lang.Integer">
+            <column name="porder" />
+        </property>
+        <set name="mhpromotionCategoryRefs" table="mhpromotion_category_ref" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cid" length="40" not-null="true" />
+            </key>
+            <one-to-many class="org.persist.dao.MhpromotionCategoryRef" />
+        </set>
+    </class>
+</hibernate-mapping>

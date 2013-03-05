@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-3-1 15:41:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.persist.dao.MhpromotionOnline" table="mhpromotion_online" catalog="imap">
+        <id name="pid" type="string">
+            <column name="pid" length="40" />
+            <generator class="foreign">
+                <param name="property">mhpromotion</param>
+            </generator>
+        </id>
+        <one-to-one name="mhpromotion" class="org.persist.dao.Mhpromotion" constrained="true" lazy="false"></one-to-one>
+        <property name="porder" type="java.lang.Integer">
+            <column name="porder" />
+        </property>
+        <property name="hot" type="java.lang.Integer">
+            <column name="hot">
+                <comment>0&#229;&#144;&#166; 1&#230;&#152;&#175;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-3-1 15:41:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.persist.dao.Mhpromotion" table="mhpromotion" catalog="imap">
+        <id name="id" type="string">
+            <column name="id" length="40" />
+            <generator class="assigned" />
+        </id>
+        <property name="title" type="string">
+            <column name="title" length="40" />
+        </property>
+        <property name="title2" type="string">
+            <column name="title2" length="40" />
+        </property>
+        <property name="summary" type="string">
+            <column name="summary" length="80" />
+        </property>
+        <property name="detail" type="string">
+            <column name="detail" length="120" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="80" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="20" />
+        </property>
+        <one-to-one name="mhpromotionOnline" class="org.persist.dao.MhpromotionOnline"></one-to-one>
+        
+        <list name="mhpromotionPics" table="mhpromotion_pic" inverse="true" lazy="false" fetch="select"  >
+            <key>
+                <column name="id" length="40" not-null="true" />
+            </key>
+            <index column="porder"  />
+            <one-to-many class="org.persist.dao.MhpromotionPic" />
+        </list>
+        <one-to-one name="mhpromotionCategoryRef" class="org.persist.dao.MhpromotionCategoryRef" lazy="false"></one-to-one>
+    </class>
+</hibernate-mapping>

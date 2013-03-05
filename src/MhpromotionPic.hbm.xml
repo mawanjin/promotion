@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-3-1 15:41:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.persist.dao.MhpromotionPic" table="mhpromotion_pic" catalog="imap">
+        <composite-id name="id" class="org.persist.dao.MhpromotionPicId">
+            <key-property name="id" type="string">
+                <column name="id" length="40" />
+            </key-property>
+            <key-property name="pic" type="string">
+                <column name="pic" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="mhpromotion" class="org.persist.dao.Mhpromotion" update="false" insert="false" fetch="select">
+            <column name="id" length="40" not-null="true" />
+        </many-to-one>
+        <property name="porder" type="java.lang.Integer">
+            <column name="porder" />
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type">
+                <comment>0 &#232;&#175;&#166;&#230;&#131;&#133;&#229;&#155;&#190;&#231;&#137;&#135; 1&#229;&#164;&#167;&#230;&#181;&#183;&#230;&#138;&#165;
+                2&#229;&#176;&#143;&#230;&#181;&#183;&#230;&#138;&#165;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

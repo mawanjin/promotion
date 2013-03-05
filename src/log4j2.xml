@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info">
+
+	<properties>
+		<property name="filename">target/promotion.log</property>
+		<property name="rollingfilename">target/promotion_rolling.log</property>
+	</properties>
+	<ThresholdFilter level="trace" />
+
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<File name="File" fileName="${filename}">
+			<PatternLayout>
+				<pattern>%d %p %C{1.} [%t] %m%n</pattern>
+			</PatternLayout>
+		</File>
+		<RollingFile name="RollingFile" fileName="${rollingfilename}"
+			filePattern="target/translator_roll-%d{MM-dd-yyyy}.log.gz">
+			<PatternLayout>
+				<pattern>%d %p %C{1.} [%t] %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+	</appenders>
+	<loggers>
+		<root level="debug">
+			<appender-ref ref="Console" />
+			<appender-ref ref="File" />
+			<appender-ref ref="RollingFile" />
+		</root>
+	</loggers>
+</configuration>

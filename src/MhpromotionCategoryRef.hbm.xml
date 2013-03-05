@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-3-1 15:41:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.persist.dao.MhpromotionCategoryRef" table="mhpromotion_category_ref" catalog="imap">
+        <id name="pid" type="string">
+            <column name="pid" length="40" />
+            <generator class="foreign">
+                <param name="property">mhpromotion</param>
+            </generator>
+        </id>
+        <many-to-one name="mhpromotionCategory" class="org.persist.dao.MhpromotionCategory" lazy="false" fetch="select">
+            <column name="cid" length="40" not-null="true" />
+        </many-to-one>
+        <one-to-one name="mhpromotion" class="org.persist.dao.Mhpromotion" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>
